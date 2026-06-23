@@ -1,6 +1,23 @@
 resource "lab" "main" {
-  title       = "Skeleton Lab"
-  description = "This is the Skeleton Lab.\nYou can use this as a minimal starting point for developing labs.\n\nFor more information, check ./assets/README.md"
+  title       = "Sandbox Failures Lab"
+  description = "A lab to test and document sandbox failure scenarios"
 
-  layout = resource.layout.single_panel
+  settings {
+    timelimit {
+      duration   = "60m"
+      show_timer = true
+    }
+  }
+
+  layout = resource.layout.two_column
+
+  content {
+    chapter "getting_started" {
+      title = "Getting Started"
+
+      page "intro" {
+        reference = resource.page.intro
+      }
+    }
+  }
 }
